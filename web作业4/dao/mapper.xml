@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guapi.demo.dao.LoginMapper">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="UserPublicInfo" id="UserPublicInfId">
+
+        <id column="UserId" property="UserId" jdbcType="INTEGER" />
+        <result column="userName" property="useName" jdbcType="VARCHAR" />
+        <result column="RegisterDate" property="RegisterDate" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+
+    <select id="selectUserPublicInfo" parameterType="INTEGER" resultMap="LoginMap">
+        select *
+        from t_UserPublicInfo
+        where 1=1
+            and id = #{id,jdbcType=INTEGER}
+    </select>
+
+
+
+</mapper>
